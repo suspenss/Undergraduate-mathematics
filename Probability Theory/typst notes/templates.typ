@@ -4,7 +4,7 @@
   set page(numbering: "1", number-align: center)
   set heading(numbering: "1.1 ")
 
-  set text(font: ("Linux Libertine", "Noto Serif SC"), lang: "en")
+  set text(font: ("Linux Libertine", "Noto Serif CJK SC"), lang: "en")
   
   show heading: it => {
     v(0.3em)
@@ -28,7 +28,7 @@
   show link: underline
   show raw: set text(font: "Fira Code", weight: "medium")
   
-  show math.equation: set text(font: ("New Computer Modern Math", "Linux Libertine", "Noto Serif SC"))
+  show math.equation: set text(font: ("New Computer Modern Math", "Linux Libertine", "Noto Serif CJK SC"))
   
   body
 }
