@@ -509,10 +509,88 @@ $]
   若 $X ~ N(mu, sigma^2)$ 则 $ E(X) = mu, D(X) = sigma^2 $
 ]
 
-== 协方差 
+== 协方差
 
-= 附录1：常见的分布类型的期望与方差
-#image("./assets/截屏2024-01-08-22.04.16.svg")
-#image("./assets/截屏2024-01-08-22.05.04.svg")
-#image("./assets/截屏2024-01-08-22.05.38.svg")
-#image("./assets/截屏2024-01-08-22.05.58.svg")
+#definition(" 协方差 ")[
+  有二维随机变量 $(X, Y)$，称 $E[(X - E(X)) (Y - E(Y))]$ 为随机变量 $(X, Y)$ 的协方差，通常计作 $"cov"(X, Y)$ 即 $ "cov"(X, Y) &= E[(X - E(X)) (Y - E(Y))] \ &= E(X Y) - E(X) E(Y) $
+  
+特别的，相同变量的协方差为其方差 $"cov"(X, X) = D(X)$。 
+
+] 
+已知方差的性质 3：$D(X + Y) = D(X) + D(Y) - 2[E(X Y) - E(X) E(Y)]$，我们将协方差的计算公式带入可得到 $D(X + Y) = D(X) + D(Y) - 2"cov"(X, Y)$。
+
+协方差有以下性质 
+#properties[
+#table(
+  columns: (1fr, 1fr), 
+  align: center, 
+  stroke: 0pt,
+  [
+    1. $"cov"(X, Y) = "cov"(Y, X)$
+  ],
+  
+   [
+    2. $"cov"(a X, b Y) = a b "cov"(X, Y)$
+      \ $a, b$ 为常数 \ \
+   ],
+   [
+    3. $"cov"(X + Y, Z) = "cov"(X, Z) + "cov"(Y, Z)$
+   ]
+   ,
+   [
+    4. 若 $X, Y$ 相互独立，则 
+    $"cov"(X, Y) = 0$
+   ]
+  )
+]
+
+#definition(" 相关系数 ")[
+  有随机变量 $X, Y$，则其相关系数为：
+  $ rho_(X Y) = "cov"(X, Y)/(sqrt(D(X)) sqrt(D(Y))) $
+]
+
+相关系数有以下性质
+#properties[
++ $-1 <= rho_(X Y) <= 1$
+
++ 相关性 \ 
+      
+      + 若相关系数 $rho_(X Y) = 0$ 则称 $X, Y$ 不相关
+      + 若 $rho_(X Y) = 1$，则称 $X, Y$ 为正相关，$y = a x + b, a > 0$
+      + 若 $rho_(X Y) = -1$，则称 $X, Y$ 为负相关，$y = a x + b, a < 0$
+]
+
+= 大数定律和中心极限定理
+
+#definition(" 切比雪夫不等式 ")[
+  有随机变量 $X$ 及其均值 $E(X)$ 方差 $D(X)$，存在任意正数 $epsilon$ 有 
+  $ P{ | X - E(X) | >= epsilon  } <= D(X) / epsilon^2 $
+  另有   $ P{ | X - E(X) | < epsilon  } >= 1- D(X) / epsilon^2 $
+]
+
+#definition(" 切比雪夫大数定律 ")[
+设 $X_1, X_2, ..., X_n$ 是相互独立的随机变量序列，且 $E(X_i), D(X_i)$ 均存在，且 $D(X_i) <= C$，记 $overline(X) = 1/n limits(sum)_(i = 1)^n X_i$ 则对于任意正数 $epsilon$，有
+$ &lim_(n -> +oo) P{ | overline(X) - E(overline(X)) | < epsilon} = 1 \ <=> & overline(X) "依概率收敛到" E(overline(X)) "即：" overline(X) -->^P E(overline(X)) $
+]
+
+#definition( " 伯努利大数定律 " )[
+设 $n_A$ 为 $n$ 次独立重复试验中事件 $A$ 发生的次数，且 $P(A) = p$，则对于任意正数 $epsilon$，有 $
+  &lim_(n -> +oo) P{ | n_A/n - p | < epsilon} = 1
+  \
+  <=> & n_A / n -->^P p
+$
+]
+
+#definition(" 辛钦大数定律 ")[
+  有随机变量序列 $X_1, X_2, ..., X_n$，随机变量间相互独立且服从同一分布，$E(X_i)$ 存在，则对于任意正数 $epsilon$ 有
+   $ 
+    &lim_(n -> +oo) P{ | overline(X) - E(overline(X)) | < epsilon } = 1 
+   \ 
+   <=> & overline(X) -->^P E(overline(X))
+   $
+]
+// = 附录1：常见的分布类型的期望与方差
+// #image("./assets/截屏2024-01-08-22.04.16.svg")
+// #image("./assets/截屏2024-01-08-22.05.04.svg")
+// #image("./assets/截屏2024-01-08-22.05.38.svg")
+// #image("./assets/截屏2024-01-08-22.05.58.svg")
