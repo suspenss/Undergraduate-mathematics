@@ -304,7 +304,7 @@ $ f(x) = cases(1/lambda e^(-x/lambda)\, space & x > 0, 0\, & "otherwize") $
 #definition(" 标准正态分布 ")[
 当 $mu = 0, sigma^2 = 1, X ~ N(0, 1),x in RR$时，其为标准正态分布。
 $
-phi(x) =  1/sqrt(2 pi) e^(x^2/2) \
+phi(x) =  1/sqrt(2 pi) -e^(x^2/2) \
 Phi(x) = F(x) = integral_(-oo)^(x) phi(t) dif t
 $ 
 ]
@@ -373,7 +373,7 @@ $ f(u, v) = cases(1/S_G \, (u, v) in G , 0 \, "其他")  $
 
 #image("./assets/截屏2023-12-29-21.59.19.svg")
 
-=== 边缘分布
+== 边缘分布
 
 #definition("Distribution function")[
   设二维随机变量 $(X, Y)$ 的联合分布函数为 $F(X, Y)$，$Omega$ 为完备事件组，则
@@ -386,11 +386,11 @@ $ f(u, v) = cases(1/S_G \, (u, v) in G , 0 \, "其他")  $
 
 #definition("Density function")[
   设 $(X, Y)$ 的密度函数为 $f(x, y)$ 则关于 $X$ 的边缘密度函数为 
-  $ f_X (y) = integral_(-oo)^(+oo) f(x, y) dif y $ 同理 $
-  f_Y (x) = integral_(-oo)^(+oo) f(x, y) dif x $ 为关于 $Y$ 的边缘密度函数。
+  $ f_X (x) = integral_(-oo)^(+oo) f(x, y) dif y $ 同理 $
+  f_Y (y) = integral_(-oo)^(+oo) f(x, y) dif x $ 为关于 $Y$ 的边缘密度函数。
 ]
 
-=== 条件分布
+== 条件分布
 
 #definition("law")[
   有二维随机变量 $(X, Y)$ 
