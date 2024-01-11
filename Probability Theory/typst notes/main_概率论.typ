@@ -80,7 +80,7 @@
   columns: 1fr, 
   align: center, 
   stroke: 0pt,
-  [_Difference_ \ $P(A - B) = P(A) - P(A B)$. 
+  [_Difference_ \ $P(A - B) = P(A) - P(A B)$ \ 
   If $B subset A, P(A - B) = P(A) - P(B).$], 
 
 )
@@ -97,10 +97,6 @@
 #definition()[
 如果 $P(A) > 0$，则条件概率为 $P(B | A) = P(A  B) / P(A)$。
 ]
-
-\
-\
-
 依此，我们有两条推广式：
 + $P(B union C | A) = P(B | A) + P(C | A) - P(B C | A)$
 + $P(B - C | A) = P(B | A) - P(B C | A)$
@@ -121,7 +117,7 @@ $ P(A_i | B) = P(A_i B) / P(B) = (P(A_i) P(B | A_i) ) / (sum_(i = 1)^n P(A_i)P(B
 ]
 
 == 事件的独立性
-若 $A$，$B$ 是相互独立事件，则有  $ P(A | B) = P(A) <=>  P(A B) = P(A) P(B) <=> P(B | A) = P(B | overline(A)) <=> P(B | overline(A)) = P(B) $
+若 $A$，$B$ 是相互独立事件，则有  $ P(A | B) = P(A) &<=>  P(A B) = P(A) P(B)\ &<=> P(B | A) = P(B | overline(A))\ &<=> P(B | overline(A)) = P(B) $
 
 且 $A, overline(A), B, overline(B)$ 也相互独立，此外有 
 $ "若" A, B, C "互为独立事件"  --> & A, B, C "两两独立"  \
@@ -182,7 +178,7 @@ $P{X = k} := (lambda^k e^(-lambda))/(k!) , space (lambda > 0)$ 计作 $X dash.wa
 )
 #table(align: center, columns: 1fr, stroke: 0pt, [  超几何分布
   
-  $P{X = k} := (binom(M, k) binom(N - M, n - k)) / binom(N, n), space k in {1, 2, 3, ... min(M, N)}$ 计作 $X dash.wave H(N, M, n)$])
+  $ P{X = k} := (binom(M, k) binom(N - M, n - k)) / binom(N, n), space k in {1, 2, 3, ... min(M, N)} $ 计作 $X dash.wave H(N, M, n)$])
 
 
 ]
@@ -269,7 +265,7 @@ $
 除此之外，还可以用下方的定理中的公式来进行求解：
 #theorem()[
   设 $f_X (x)$ 随机变量 $X$ 的密度函数，对于随机变量 $Y$ 有 $Y = g(X)$，且 $g(X)$ 为单调函数，令 $x = h(y)$ 是 $y = g(x)$ 的反函数，$alpha, beta$ 分别是 $g(x)$ 的最小值和最大值。则 $Y = g(X)$ 的密度函数 $f_Y (y)$ 为： $ f_Y (y) = cases(
-    f_X ( h(y))abs(h'(y)) \, space  space &alpha < y < beta, 0 \, &"otherwize"
+    f_X ( h(y))abs(h'(y))   &\, quad alpha < y < beta, 0 &\, quad "其他"
   ) $
 ]
 
@@ -324,9 +320,9 @@ $ f(u, v) = cases(1/S_G \, (u, v) in G , 0 \, "其他")  $]
 ]
 
 #definition("密度函数")[
-  设 $(X, Y)$ 的密度函数为 $f(x, y)$ 则关于 $X$ 的边缘密度函数为 
-  $ f_X (x) = integral_(-oo)^(+oo) f(x, y) dif y $ 同理 $
-  f_Y (y) = integral_(-oo)^(+oo) f(x, y) dif x $ 为关于 $Y$ 的边缘密度函数。
+  设 $(X, Y)$ 的密度函数为 $f(x, y)$ 则关于 $X$ 的边缘密度函数和关于 $Y$ 的边缘密度函数为 
+  $ f_X (x) = integral_(-oo)^(+oo) f(x, y) dif y , quad  quad 
+  f_Y (y) = integral_(-oo)^(+oo) f(x, y) dif x $ 
 ]
 
 == 条件分布
@@ -354,10 +350,6 @@ $ f(u, v) = cases(1/S_G \, (u, v) in G , 0 \, "其他")  $]
   有二维随机变量 $(X, Y)$ 及其联合概率分布 $f(x, y)$，已知 $Z = g(X, Y)$，则 $Z$ 的概率分布为 $ F_Z (z) = P{Z <= z} = P{g(X, Y) <= z} = P{(X, Y) | g(X, Y) <= z} = limits(integral.double)_G f(x, y) dif x dif y $
 ]
 或使用卷积公式： 
-
-\
-\
-\
 
 #formula("卷积公式")[
   若随机变量 $X, Z, Y$ 存在 $Z = X + Y$ 关系，则
@@ -512,7 +504,7 @@ $]
 ]
 
 #definition("切比雪夫大数定律")[
-设 $X_1, X_2, ..., X_n$ 是相互独立的随机变量序列，且 $E(X_i), D(X_i)$ 均存在，且 $D(X_i) <= C$，记 $overline(X) = 1/n limits(sum)_(i = 1)^n X_i$ 则对于任意正数 $epsilon$，有
+设 $X_1, X_2, ..., X_n$ 是相互独立的随机变量序列，且 $E(X_i), D(X_i)$ 均存在，且 $D(X_i) <= C$，记 $overline(X) = 1/n sum_(i = 1)^n X_i$ 则对于任意正数 $epsilon$，有
 $ &lim_(n -> +oo) P{ | overline(X) - E(overline(X)) | < epsilon} = 1 \ <=> & overline(X) "依概率收敛到" E(overline(X)) "即：" overline(X) -->^P E(overline(X)) $
 ]
 
@@ -551,12 +543,13 @@ $
   $ 
     lim_(n -> +oo) P{(X_n - n p) / sqrt(n p (1 - p))  <= x} = integral_(-oo)^x 1/sqrt(2 pi) e^(t^2/2) dif t = Phi(x).
   $
-  也即：当 $n$ 充分大时，$limits(sum)_(i = 1)^n X_i$ 近似服从参数为 $n p$ 与 $n p(1-p)$ 的正态分布，进而 $(limits(sum)_(i = 1)^n X_i - n p) / sqrt(n p (1 - p))$ 近似服从标准正态分布。
+  也即：当 $n$ 充分大时，$sum_(i = 1)^n X_i$ 近似服从参数为 $n p$ 与 $n p(1-p)$ 的正态分布，进而 $(sum_(i = 1)^n X_i - n p) / sqrt(n p (1 - p))$ 近似服从标准正态分布。
 ]
 
 
 
-= 附录1：常见的分布类型的期望与方差
+= 附录1：常见的分布类型的期望与方差及证明
+
 #image("./assets/截屏2024-01-08-22.04.16.svg")
 #image("./assets/截屏2024-01-08-22.05.04.svg")
 #image("./assets/截屏2024-01-08-22.05.38.svg")

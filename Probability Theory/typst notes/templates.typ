@@ -14,11 +14,26 @@
   }
   
   // Title row.
-  align(center)[
-    #block(text(weight: 700, 1.75em, title))
-  ]
+  // align(center)[
+  //   #block(text(weight: 700, 1.75em, title))
+  // ]
 
-  outline(fill: none, indent: true)
+  show outline.entry.where(
+    level: 1
+  ): it => {
+    v(12pt, weak: true)
+    strong(it)
+  }
+
+  page([
+    #align(center)[
+      #block(text(weight: 700, 1.75em, title))
+    ] 
+    #v(3em)
+    #outline(indent: true, title: "目录", depth: 2)
+  ])
+
+  // outline(fill: none, indent: true, title: "目录", depth: 2)
   
   v(1em)
   
