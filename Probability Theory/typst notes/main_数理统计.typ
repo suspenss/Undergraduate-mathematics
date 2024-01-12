@@ -33,7 +33,7 @@
 #definition("样本平均值")[
   $overline(X) = 1/n limits(sum)_(i = 1)^n X_i$ .
 
-  根据定义可得 $E(overline(X)) = n mu, D(overline(X)) = sigma^2 / n$
+  根据定义可得 $E(overline(X)) = mu, D(overline(X)) = sigma^2 / n$
 ]
 #definition("样本方差")[
   $S^2 = 1/(n - 1) limits(sum)_(i = 1)^n (X_i - overline(X))^2  = 1/(n - 1) (limits(sum)_(i = 1)^n X_i^2 - n overline(X)^2 )$
@@ -53,8 +53,7 @@ $S = sqrt(S^2) = sqrt(1/(n - 1) limits(sum)_(i = 1)^n (X_i - overline(X))^2)$
 
 == 抽样分布
 
-
-抽样分布即为统计量为 $g(X_1, X_2, ..., X_n)$ 的分布，如 $chi^2$ 分布。
+抽样分布即为统计量为 $g(X_1, X_2, ..., X_n)$ 的分布，在做题时题目一般会给出提示数据，可以查表求解。
 
 === $chi^2$ 分布
 #definition([ $chi^2$ 分布])[

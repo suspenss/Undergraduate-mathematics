@@ -497,18 +497,18 @@ $]
 
 = 大数定律和中心极限定理
 == 大数定律
-#definition("切比雪夫不等式")[
+#theorem("切比雪夫不等式")[
   有随机变量 $X$ 及其均值 $E(X)$ 方差 $D(X)$，存在任意正数 $epsilon$ 有 
   $ P{ | X - E(X) | >= epsilon  } <= D(X) / epsilon^2 $
   另有   $ P{ | X - E(X) | < epsilon  } >= 1- D(X) / epsilon^2 $
 ]
 
-#definition("切比雪夫大数定律")[
+#theorem("切比雪夫大数定律")[
 设 $X_1, X_2, ..., X_n$ 是相互独立的随机变量序列，且 $E(X_i), D(X_i)$ 均存在，且 $D(X_i) <= C$，记 $overline(X) = 1/n sum_(i = 1)^n X_i$ 则对于任意正数 $epsilon$，有
 $ &lim_(n -> +oo) P{ | overline(X) - E(overline(X)) | < epsilon} = 1 \ <=> & overline(X) "依概率收敛到" E(overline(X)) "即：" overline(X) -->^P E(overline(X)) $
 ]
 
-#definition( "伯努利大数定律" )[
+#theorem( "伯努利大数定律" )[
 设 $n_A$ 为 $n$ 次独立重复试验中事件 $A$ 发生的次数，且 $P(A) = p$，则对于任意正数 $epsilon$，有 $
   &lim_(n -> +oo) P{ | n_A/n - p | < epsilon} = 1
   \
@@ -516,7 +516,7 @@ $ &lim_(n -> +oo) P{ | overline(X) - E(overline(X)) | < epsilon} = 1 \ <=> & ove
 $
 ]
 
-#definition("辛钦大数定律")[
+#theorem("辛钦大数定律")[
   有随机变量序列 $X_1, X_2, ..., X_n$，随机变量间相互独立且服从同一分布，$E(X_i)$ 存在，则对于任意正数 $epsilon$ 有
    $ 
     &lim_(n -> +oo) P{ | overline(X) - E(overline(X)) | < epsilon } = 1 
@@ -527,24 +527,26 @@ $
 == 中心极限定理
 独立随机变量的和的分布当随机变量的个数足够大的时候，近似的服从正态分布。
 
-#definition("独立同分布（列维— 林德伯格）中心极限定理 ")[
+#theorem([独立同分布（列维 --- 林德伯格）中心极限定理])[
   \
-  若一随机变量序列 $X_1, X_2, ... , X_n$ 服从同一分布且具有相同的期望 $E(X_i) = mu$，相同的方差 $D(X_i) = sigma^2$，将 $sum_(i = 1)^n X_i$ 计作 $overline(X)$ 则当 $n$ 充分大的时候，有 
+  若一随机变量序列 $X_1, X_2, ... , X_n$ 服从同一分布且具有相同的期望 $E(X_i) = mu$，相同的方差 $D(X_i) = sigma^2$，将 $sum_(i = 1)^n X_i$ 计作 $eta_n$ 则当 $n$ 充分大的时候，有 
   $ 
-  overline(X) "近似服从" &N(E(overline(X)), D(overline(X))) \
+  eta_n "近似服从" &N(E(eta_n), D(eta_n)) \
   &= N(n mu, n sigma^2)
   $
+又由正态分布的标准化可得 $ (sum_(i = 1)^n X_i - n mu)/(sqrt(n ) sigma) = (overline(X) - mu)/(sigma / sqrt(n)) "近似服从" N(0, 1)  $
 
-又由正态分布的标准化可得 $ (overline(X) - n mu)/(sqrt(n ) sigma) "近似服从" N(0, 1) $
+
 ]
 
-#definition("棣莫弗一拉普拉斯 (De Moivre-Laplace) 定理")[
+#theorem("棣莫弗一拉普拉斯（De Moivre - Laplace）定理")[
   若随机变量 $X_n, n = 1, 2, ...$ 服从参数为 $n, p$ 的二项分布，也即随机变量 $X$ 可以分为 $n$ 的相互独立的随机变量 $X_i$ 服从 $0 - 1$ 分布，对于任意的 $x$ 有 
   $ 
     lim_(n -> +oo) P{(X_n - n p) / sqrt(n p (1 - p))  <= x} = integral_(-oo)^x 1/sqrt(2 pi) e^(t^2/2) dif t = Phi(x).
   $
   也即：当 $n$ 充分大时，$sum_(i = 1)^n X_i$ 近似服从参数为 $n p$ 与 $n p(1-p)$ 的正态分布，进而 $(sum_(i = 1)^n X_i - n p) / sqrt(n p (1 - p))$ 近似服从标准正态分布。
 ]
+
 
 
 
