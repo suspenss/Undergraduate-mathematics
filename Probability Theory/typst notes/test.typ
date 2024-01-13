@@ -38,3 +38,14 @@
 #note[
   Test
 ]
+
+
+
+$ 
+f_X (x) = cases(1/(2p) med \, x in (-p, p) , 0  med \, "otherwise")
+$
+$
+E(Y) &= integral_(-oo)^(oo) cos x 1/(2p) dif x \ & = 1/(2p) integral_(-p)^(P) cos x dif x 
+
+
+$

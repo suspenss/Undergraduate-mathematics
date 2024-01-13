@@ -11,6 +11,9 @@
     "epoche",
   ),
 )
+#show math.ast: math.thin
+#let obey = math.dash.wave
+
 
 = 基本概念
 
@@ -79,15 +82,18 @@
   columns: 1fr, 
   align: center, 
   stroke: 0pt,
-  [_减法_ \ $P(A - B) = P(A) - P(A B)$ \ 
-  If $B subset A, P(A - B) = P(A) - P(B).$], 
+  [1. _减法_ 
+   $ P(A - B) = P(A) - P(A B)  \ "If" B subset A, P(A - B) = P(A) - P(B). $], 
 
 )
   #table(
   columns: (1fr, 1fr), 
   align: center, 
   stroke: 0pt,
-  [加法 \ $P(A + B) = P(A) + P(B) - P(A B)$], [乘法 \ $P(A B) = P(A) P(B | A)$]
+  [2. 加法
+  $ P(A union B) = P(A) + P(B) - P(A B) $], 
+  [3. 乘法 
+   $ P(A B) = P(A) P(B | A) $]
 )
 
 
@@ -598,7 +604,7 @@ $S = sqrt(S^2) = sqrt(1/(n - 1) limits(sum)_(i = 1)^n (X_i - overline(X))^2)$
 
 抽样分布即为统计量为 $g(X_1, X_2, ..., X_n)$ 的分布，在做题时题目一般会给出提示数据，可以查表求解。
 
-=== $chi^2$ 分布
+=== $chi^2$ 分布，$t$ 分布和 $F$ 分布
 #definition([ $chi^2$ 分布])[
 设样本 $X_1, X_2, ..., X_n$ 相互独立，且均服从 $N(0, 1)$ 分布，则有 $X = X_1^2 + X_2^2 + ...+ X_n^2 $ 服从自由度为 $n$ 的 $chi^2$ 分布，即 $X dash.wave chi^2(n)$。
 ]
@@ -627,27 +633,63 @@ $chi^2$ 分布有如下几条性质：
   )
 ]
 
-=== $t$ 分布 
-
 #definition([$t$ 分布])[
   若有 $X dash.wave N(0, 1), Y dash.wave chi^2(n)$ 且相互独立，则 $
   X / sqrt(Y / n) = t dash.wave t(n)
   $
 ]
 
-=== $F$ 分布
-
 #definition([$F$ 分布])[
   若有 $X_1 dash.wave chi^2(n_1), X_2 dash.wave chi^2(n_2)$ 且相互独立，则 $
     X_1/n_1/(X_2/n_2) = F dash.wave F(n_1, n_2)
   $
 ]
-\
 
-#image("./assets/截屏2024-01-11 16.23.32.png") 
+与 $chi^2$ 分布类似的，$t$ 分布及 $F$ 分布都具有上 $alpha$ 分位点。
+
+#definition("正态总体的样本均值与样本方差的分布")[
+设总体 $X dash.wave N(mu, sigma^2)$，$X_1, X_2, ..., X_n$ 为总体的一个样本，则 
+
+#h(1fr) 1. $overline(X) dash.wave N(mu, sigma^2/n)
+$#h(1fr) 2. $((n - 1) * S^2)/sigma^2 obey chi^2(n - 1)$ #h(1fr) 3. $overline(X) " 与 " S^2 "独立"$#h(1fr)
+]
+
 #image("./assets/WeChat7464a5889c0f3cadca18c1f801d247c8.jpg")
 
+= 参数估计
 
+== 点估计
+#definition[
+  已知总体 $X$ 的分布，含有未知参数 $theta$，用样本做参数来构造统计量 $hat(theta) thin (X_1, X_2, ..., X_n)$ 来估计 $theta$。
+]
+
+由一阶矩估计（点估计）推广到 $k$ 阶矩估计，由大数定理可得，当数量足够大时，样本矩趋近于总体矩，根据矩估计中用样本矩代替总体矩的思想，由总体的分布可以得到总体矩，接着用样本矩代替总体矩，也即构造未知参数 $theta$ 与样本矩的等价关系。最后解得 $hat(theta)$ 即为矩估计量。
+
+=== 最大似然估计
+基本思想是使得样本发生的概率最大的 $hat(theta)$ 即为最大似然估计。
+
+在最大似然估计中，用似然函数去刻画样本出现的概率大小，对于离散型随机变量，其最大似然函数即为样本间质量函数的积 $Pi^1$
+基本思想是使得样本发生的概率最大的 $hat(theta)$ 即为最大似然估计。
+
+在最大似然估计中，用似然函数去刻画样本出现的概率大小，其形式如下：$
+ "Li"(theta) = &product_(i = 0)^n P{X = X_i} quad &"（离散型随机变量）" \
+ &product_(i = 0)^(n) f (x_i) quad &"（连续型随机变量）"
+$
+
+在求解最大似然估计时，一般通过求导求其导数的驻点来得到 $hat(theta)$，对于连乘函数形式的似然函数而言，可以先等式两边同时取 *对数* 使连乘变为连加，再求导求驻点即 $(dif ln "Li"(theta)) /( dif theta) eq.delta 0$。
+
+
+
+== 评选标准
+1. 无偏性，若 $E(hat(theta)) = theta$ 则称 $hat(theta)$ 为无偏估计，若 $limits(lim)_(n -> oo) E(hat(theta)) = theta$ 则称为渐进无偏估计。
+
+2. 有效性，若对于未知参数 $theta$ 有两个估计量 $hat(theta)_1" 与 " hat(theta)_2$，两者当中方差较小的估计量更有效。
++ 一致性，若 $n$ 趋于无穷时，估计量以概率趋紧于未知参数，则称估计量与为质量一致，一般的，若估计量的均值等于未知参数及具有无偏性，估计量的方差趋近于零，即具有有效性，则满足估计量与未知参数具有一致性。
+== 区间估计
+#definition([置信区间])[ 对于总体的一个未知参数 $theta$，存在一个 $alpha$，使得 $P{hat(theta)_1 < theta < hat(theta)_2} = 1 - alpha$，则称 $(hat(theta)_1, hat(theta)_2)$ 为置信区间。
+]
+
+在求解置信区间时，通常先构造一个确定分布的含有参数 $theta$ 的样本统计量 $J$，根据其分布求出 $P{a < J < b} = 1 - alpha$，的左右端点 $a, b$，进而解出 $theta$ 的置信区间。
 
 = 附录1：常见的分布类型的期望与方差及证明
 
