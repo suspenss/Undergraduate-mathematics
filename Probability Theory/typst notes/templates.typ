@@ -22,7 +22,17 @@
     level: 1
   ): it => {
     v(12pt, weak: true)
-    strong(it)
+
+    let no_fill_it = {it.body ;h(1fr); it.page}
+
+    strong(no_fill_it)
+
+    // strong(no_fill_it)
+    // if it.has("fill") {
+    //   it
+    // } else [
+    //   none
+    // ]
   }
 
   page([

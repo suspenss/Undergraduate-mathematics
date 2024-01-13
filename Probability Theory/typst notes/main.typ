@@ -12,7 +12,6 @@
   ),
 )
 
-
 = 基本概念
 
 == 运算
@@ -80,7 +79,7 @@
   columns: 1fr, 
   align: center, 
   stroke: 0pt,
-  [_Difference_ \ $P(A - B) = P(A) - P(A B)$ \ 
+  [_减法_ \ $P(A - B) = P(A) - P(A B)$ \ 
   If $B subset A, P(A - B) = P(A) - P(B).$], 
 
 )
@@ -88,7 +87,7 @@
   columns: (1fr, 1fr), 
   align: center, 
   stroke: 0pt,
-  [_Addition_ \ $P(A + B) = P(A) + P(B) - P(A B)$], [_Multiplication_ \ $P(A B) = P(A) P(B | A)$]
+  [加法 \ $P(A + B) = P(A) + P(B) - P(A B)$], [乘法 \ $P(A B) = P(A) P(B | A)$]
 )
 
 
@@ -153,7 +152,7 @@ $R.V.$ 是一个从随机试验 $E$ 的样本空间 $Omega$ 到 $RR$ 的一个�
 ]
 
 == 离散型随机变量及其分布
-#example(title: "例子")[
+#definition(title: "定义")[
 #table(columns: (1fr, 1fr), align: center, stroke: 0pt,
 
 [0 -- 1 分布 
@@ -166,6 +165,7 @@ $P{X = k} := binom(n, k)p^k (1 - p)^(n - k), k in {x | x in NN^+ sect [0, n]}$
 计作 $X dash.wave  B(n, p)$
 \
 \
+\
 ],
 [  泊松分布 
 
@@ -174,6 +174,8 @@ $P{X = k} := (lambda^k e^(-lambda))/(k!) , space (lambda > 0)$ 计作 $X dash.wa
   几何分布 
   
   $P{X = k} := (1 - p)^(k - 1) P$
+  \
+  \
 ]
 )
 #table(align: center, columns: 1fr, stroke: 0pt, [  超几何分布
@@ -214,19 +216,18 @@ $ f(x) = cases(1/lambda e^(-x/lambda)\, space & x > 0, 0\, & "otherwize") $
 ]
 
 === 正态分布
-#definition("Normal")[
-  Marked $X dash.wave  N(mu, sigma^2)$, $sigma > 0&$
+#definition("正态分布")[
+  计作 $X dash.wave  N(mu, sigma^2)$, $sigma > 0&$
   $ f(x) = 1/(sqrt(2 pi) sigma) e^(-(x-mu)^2/(2 sigma^2)) , space x in RR $
 ]
 
 #formula[
-  $ integral^(+oo)_(-oo) e^(-x^2/A) dif x = sqrt(A pi) , space A > 0 $
-]
-
+  $integral^(+oo)_(-oo) e^(-x^2/A) dif x = sqrt(A pi) , space A > 0$
 #proof[
   设 $X dash.wave  N(0, A/2)$, 因为概率分布函数具有规范性 $F(+oo) = 1$ 即 $integral_(-oo)^(+oo) f(x) = 1.$ 带入得
   $ integral_(-oo)^(+oo) 1/(sqrt(A pi)) e^(-x^2 / A) dif x = 1 \ 1/(sqrt(A pi)) integral_(-oo)^(+oo)  e^(-x^2 / A) dif x = 1 \ integral_(-oo)^(+oo)  e^(-x^2 / A) dif x = sqrt(A pi)
   $
+]
 ]
 
 #definition("标准正态分布")[
@@ -244,7 +245,7 @@ $
 根据标准化，如果我们想要计算一个满足非标准化的正态分布的随机变量在范围 $(a, b]$上的概率，我们可以 $X$ 先将其标准化为 $(X - mu)/sigma$ 并计算 $Phi((b - mu)/sigma) - Phi((a - mu)/sigma)$ 即可。
 
 
-#definition("Quantile 分位点")[
+#definition("分位点")[
   $mu_(alpha)$ 表示 $P{x > mu_(alpha) } = alpha$.\ 并且有 $mu_(1 - alpha) = mu(-alpha)$.
 ]
 
@@ -263,7 +264,7 @@ $
 ]
 
 除此之外，还可以用下方的定理中的公式来进行求解：
-#theorem()[
+#formula()[
   设 $f_X (x)$ 随机变量 $X$ 的密度函数，对于随机变量 $Y$ 有 $Y = g(X)$，且 $g(X)$ 为单调函数，令 $x = h(y)$ 是 $y = g(x)$ 的反函数，$alpha, beta$ 分别是 $g(x)$ 的最小值和最大值。则 $Y = g(X)$ 的密度函数 $f_Y (y)$ 为： $ f_Y (y) = cases(
     f_X ( h(y))abs(h'(y))   &\, quad alpha < y < beta, 0 &\, quad "其他"
   ) $
@@ -291,11 +292,14 @@ $
 二维随机变量的联合密度函数有如下性质：
 #properties[
 #table(columns: (1fr, 1fr), align: center,stroke: 0pt,
-[非负性：$ f(x, y) >= 0 $],
-[规范性：$ integral_(-oo)^(oo) integral_(-oo)^(oo) f(u, v) dif u dif v = F(oo, oo) = 1 $],
+[1. 非负性：
+$ f(x, y) >= 0 $],
+[ 2. 规范性：
+$ integral_(-oo)^(oo) integral_(-oo)^(oo) f(u, v) dif u dif v = F(oo, oo) = 1 $],
 )
 #table(columns: 1fr, align: center,stroke: 0pt,
-[设 $G$ 是平面 $x O y$ 上的闭区域，则点 $(X, Y)$ 落在 $G$ 区域上的概率为 $ F{(X, Y) in G} =  limits(integral.double)_G f(x, y) dif x dif y $]
+[3. 设 $G$ 是平面 $x O y$ 上的闭区域，则点 $(X, Y)$ 落在 $G$ 区域上的概率为 
+$ F{(X, Y) in G} =  limits(integral.double)_G f(x, y) dif x dif y $]
 )
 
 ]
@@ -347,7 +351,7 @@ $ f(u, v) = cases(1/S_G \, (u, v) in G , 0 \, "其他")  $]
 
 对于离散型随机变量，依旧是先求取值，再求概率。而对于两个连续型随机变量，我们有如下方法：
 #formula("分布函数法")[
-  有二维随机变量 $(X, Y)$ 及其联合概率分布 $f(x, y)$，已知 $Z = g(X, Y)$，则 $Z$ 的概率分布为 $ F_Z (z) = P{Z <= z} = P{g(X, Y) <= z} = P{(X, Y) | g(X, Y) <= z} = limits(integral.double)_G f(x, y) dif x dif y $
+  有二维随机变量 $(X, Y)$ 及其联合概率分布 $f(x, y)$，已知 $Z = g(X, Y)$，则 $Z$ 的概率分布为 $ F_Z (z) = P{Z <= z} = P{g(X, Y) <= z} = \P{(X, Y) | g(X, Y) <= z} = limits(integral.double)_G f(x, y) dif x dif y $
 ]
 或使用卷积公式： 
 
@@ -406,7 +410,7 @@ $]
   方差为随机变量与其均值的距离的平方的均值即 $D(X) = E[(X - E(X))^2]$，其用来表示 $X$ 偏离其均值 $E(X)$ 的程度大小。且方差 $D(X) >= 0$。
 ]
 
-#formula[
+#formula("方差计算公式")[
   $D(X) = E(X^2) - E^2(X)$
 ]
 
@@ -429,20 +433,20 @@ $]
   若随机变量 $X dash.wave  B(n, p)$ 则其含义为 $n$ 重伯努利实验中成功的次数即 $X = X_1 + X_2 + ... + X_n$，其中 $X_i$ 表示第 $i$ 次伯努利实验，每次伯努利实验独立且都有相同的 $p$，即 $E(X_i) = p$，则 $ E(X)& = E(X_1 + X_2 + ... + X_n) = n p \ D(X)& = D(X_1 + X_2 + ... + X_n) = n p(1 - p) $
 ]
 
-#theorem("Passion 分布")[
+#theorem("泊松分布")[
   若随机变量 $X$ 服从参数为 $lambda$ 的泊松分布即 $X dash.wave  P(lambda)$ 则 $ E(X) = D(X) = lambda $
 ]
 
-#theorem("Uniform 分布")[
+#theorem("均匀分布")[
   若 $X dash.wave  U(a, b)$ 则 $ E(X) = (a + b)/2, D(X) = (b - a)^2 / 12 $
 ]
 
-#theorem("Index 分布")[
+#theorem("指数分布")[
   若 $X dash.wave  e(lambda)$ 则 $ E(X) = 1/lambda, D(X) = 1/lambda^2 $
 ]
 
 
-#theorem("Normal 分布")[
+#theorem("正态分布")[
   若 $X dash.wave  N(mu, sigma^2)$ 则 $ E(X) = mu, D(X) = sigma^2 $
 ]
 
@@ -547,6 +551,101 @@ $
   也即：当 $n$ 充分大时，$sum_(i = 1)^n X_i$ 近似服从参数为 $n p$ 与 $n p(1-p)$ 的正态分布，进而 $(sum_(i = 1)^n X_i - n p) / sqrt(n p (1 - p))$ 近似服从标准正态分布。
 ]
 
+
+= 样本与抽样分布
+== 基本概念
+#definition("样本")[
+  设随机变量 $X$ 服从分布 $F$，若随机变量序列 $X_1, X_2, ..., X_n$ 具有同一分布 $F$ 且相互独立，则称这一随机变量序列为从总体 $F$ 或总体 $X$ 得到的容量为 $n$ 的样本，$x_1, x_2, ..., x_n$ 为 $X$ 的 $n$ 个独立观测值。 
+  
+  反之，若一随机变量序列是总体 $F$ 的一个样本，则序列中的随机变量同分布为 $F$，且相互独立。
+]
+
+#definition("经验分布函数")[
+有 样本 $x_1, x_2, ..., x_n$，用$S(x)，-oo < z< oo$ 表示 $x_1, x_2, ..., x_n$ 中不大于 $x$ 的随机变量的个数，定义经验分布函数 $F(z)$ 为 $ F_n(x) = 1/n S(x), quad -oo < x < oo  $
+]
+
+
+=== 统计量
+#definition("统计量与统计量的观测值")[
+  若有一随机变量序列 $X_1, X_2, ..., X_n$ 是总体 $F$ 的一个容量为 $n$ 的样本，则称不含有位置参数的函数函数 $g(X_1, X_2, ..., X_n)$ 为统计量。
+
+由定义可知，$g(X_1, X_2, ..., X_n)$ 也是一个随机变量，若有 $x_1, x_2, ..., x_n$ 是样本的观测值，则 $g(x_1, x_2, ..., x_n)$ 是随机变量 $g(X_1, X_2, ..., X_n)$ 的观测值。
+]
+
+有总体 $X, E(X) = mu, D(X) = sigma^2$，下方为常见的统计量：
+#definition("样本平均值")[
+  $overline(X) = 1/n limits(sum)_(i = 1)^n X_i$ .
+
+  根据定义可得 $E(overline(X)) = mu, D(overline(X)) = sigma^2 / n$
+]
+#definition("样本方差")[
+  $S^2 = 1/(n - 1) limits(sum)_(i = 1)^n (X_i - overline(X))^2  = 1/(n - 1) (limits(sum)_(i = 1)^n X_i^2 - n overline(X)^2 )$
+
+  根据定义可得，$E(S^2) = D(X) = sigma^2$
+]
+#definition("样本标准差")[
+$S = sqrt(S^2) = sqrt(1/(n - 1) limits(sum)_(i = 1)^n (X_i - overline(X))^2)$
+]
+#definition("样本 k 阶原点矩")[
+  $A_k = 1/n limits(sum)_(i = 1)^n X_i^k ,quad k = 1, 2, 3, ...$
+]
+#definition("样本 k 阶中心矩")[
+  $B_k = 1/n limits(sum)_(i = 1)^n (X_i - overline(X))^k ,quad k = 2, 3, ...$
+]
+
+
+== 抽样分布
+
+抽样分布即为统计量为 $g(X_1, X_2, ..., X_n)$ 的分布，在做题时题目一般会给出提示数据，可以查表求解。
+
+=== $chi^2$ 分布
+#definition([ $chi^2$ 分布])[
+设样本 $X_1, X_2, ..., X_n$ 相互独立，且均服从 $N(0, 1)$ 分布，则有 $X = X_1^2 + X_2^2 + ...+ X_n^2 $ 服从自由度为 $n$ 的 $chi^2$ 分布，即 $X dash.wave chi^2(n)$。
+]
+
+$chi^2$ 分布有如下几条性质：
+#properties[
+  #table(
+    columns: (1fr, 1fr)
+  , stroke: 0pt 
+  , align: center
+  , [
+  1. 可加性
+  若 $X dash.wave chi^2(n_1), Y dash.wave chi^2(n_2)$ 则 $X + Y dash.wave chi^2(n_1 + n_2)$.
+  ], 
+  [ 2. 均值与方差
+   若 $X dash.wave chi^2(n)$，则 $E(X) = n, D(X) = 2n$.
+  ]
+  )
+
+    #table(
+    columns: 1fr, stroke: 0pt , align: center , 
+    [ 3. 上 $alpha$ 分位点
+      在 $chi^2$ 分布的密度图形中，当 $x = x_alpha$ 时，$x > x_alpha$ 的面积为 $alpha$，称此点为上 $alpha$ 分位点。此时有 $P{X > x_alpha} = alpha$ . 
+    ]
+  
+  )
+]
+
+=== $t$ 分布 
+
+#definition([$t$ 分布])[
+  若有 $X dash.wave N(0, 1), Y dash.wave chi^2(n)$ 且相互独立，则 $
+  X / sqrt(Y / n) = t dash.wave t(n)
+  $
+]
+
+=== $F$ 分布
+
+#definition([$F$ 分布])[
+  若有 $X_1 dash.wave chi^2(n_1), X_2 dash.wave chi^2(n_2)$ 且相互独立，则 $
+    X_1/n_1/(X_2/n_2) = F dash.wave F(n_1, n_2)
+  $
+]
+\
+
+#image("./assets/截屏2024-01-11 16.23.32.png") 
+#image("./assets/WeChat7464a5889c0f3cadca18c1f801d247c8.jpg")
 
 
 
