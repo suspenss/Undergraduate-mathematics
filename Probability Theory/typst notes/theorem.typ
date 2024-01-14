@@ -61,6 +61,8 @@
   titlefmt: strong,
   // inset: (x: 1.2em, top: 0.5em, bottom: 0.5em),
   namefmt : chnamefmt,
+  // fill: rgb("#e8e8f8"),
+    // separator: [#h(0.1em)：#h(0.2em)],
 ).with(numbering: none)
 
 

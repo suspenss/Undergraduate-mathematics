@@ -11,8 +11,9 @@
     "epoche",
   ),
 )
+
 #show math.ast: math.thin
-#let obey = math.dash.wave
+#let obey = math.tilde
 
 
 = 基本概念
@@ -168,14 +169,14 @@ $#table(columns: 3, [x],[0], [1], [P], [$p$], [$1 - p$])$],
 
 $P{X = k} := binom(n, k)p^k (1 - p)^(n - k), k in {x | x in NN^+ sect [0, n]}$ 
     
-计作 $X dash.wave  B(n, p)$
+计作 $X tilde  B(n, p)$
 \
 \
 \
 ],
 [  泊松分布 
 
-$P{X = k} := (lambda^k e^(-lambda))/(k!) , space (lambda > 0)$ 计作 $X dash.wave  P(lambda)$],
+$P{X = k} := (lambda^k e^(-lambda))/(k!) , space (lambda > 0)$ 计作 $X tilde  P(lambda)$],
 [
   几何分布 
   
@@ -186,14 +187,14 @@ $P{X = k} := (lambda^k e^(-lambda))/(k!) , space (lambda > 0)$ 计作 $X dash.wa
 )
 #table(align: center, columns: 1fr, stroke: 0pt, [  超几何分布
   
-  $ P{X = k} := (binom(M, k) binom(N - M, n - k)) / binom(N, n), space k in {1, 2, 3, ... min(M, N)} $ 计作 $X dash.wave H(N, M, n)$])
+  $ P{X = k} := (binom(M, k) binom(N - M, n - k)) / binom(N, n), space k in {1, 2, 3, ... min(M, N)} $ 计作 $X tilde H(N, M, n)$])
 
 
 ]
 
 
 #theorem("泊松定理")[
-  当 $X dash.wave  B(n, p)$ 且 $n$ 充分大，$p$ 充分小时
+  当 $X tilde  B(n, p)$ 且 $n$ 充分大，$p$ 充分小时
   $
   binom(n, k)p^k (1 - p)^(n - k) approx (lambda^k e^(-lambda)) / (k!), lambda = n p
   $
@@ -223,21 +224,21 @@ $ f(x) = cases(1/lambda e^(-x/lambda)\, space & x > 0, 0\, & "otherwize") $
 
 === 正态分布
 #definition("正态分布")[
-  计作 $X dash.wave  N(mu, sigma^2)$, $sigma > 0&$
+  计作 $X tilde  N(mu, sigma^2)$, $sigma > 0&$
   $ f(x) = 1/(sqrt(2 pi) sigma) e^(-(x-mu)^2/(2 sigma^2)) , space x in RR $
 ]
 
 #formula[
   $integral^(+oo)_(-oo) e^(-x^2/A) dif x = sqrt(A pi) , space A > 0$
 #proof[
-  设 $X dash.wave  N(0, A/2)$, 因为概率分布函数具有规范性 $F(+oo) = 1$ 即 $integral_(-oo)^(+oo) f(x) = 1.$ 带入得
+  设 $X tilde  N(0, A/2)$, 因为概率分布函数具有规范性 $F(+oo) = 1$ 即 $integral_(-oo)^(+oo) f(x) = 1.$ 带入得
   $ integral_(-oo)^(+oo) 1/(sqrt(A pi)) e^(-x^2 / A) dif x = 1 \ 1/(sqrt(A pi)) integral_(-oo)^(+oo)  e^(-x^2 / A) dif x = 1 \ integral_(-oo)^(+oo)  e^(-x^2 / A) dif x = sqrt(A pi)
   $
 ]
 ]
 
 #definition("标准正态分布")[
-当 $mu = 0, sigma^2 = 1, X dash.wave  N(0, 1),x in RR$时，其为标准正态分布。
+当 $mu = 0, sigma^2 = 1, X tilde  N(0, 1),x in RR$时，其为标准正态分布。
 $
 phi(x) =  1/sqrt(2 pi) -e^(x^2/2) \
 Phi(x) = F(x) = integral_(-oo)^(x) phi(t) dif t
@@ -245,7 +246,7 @@ $
 ]
 
 #definition("标准化")[
-若 $X dash.wave  N(mu, sigma^2)$ 不满足标准正态分布，则 $(X - mu)/sigma dash.wave  N(0, 1)$
+若 $X tilde  N(mu, sigma^2)$ 不满足标准正态分布，则 $(X - mu)/sigma tilde  N(0, 1)$
 ]
 
 根据标准化，如果我们想要计算一个满足非标准化的正态分布的随机变量在范围 $(a, b]$上的概率，我们可以 $X$ 先将其标准化为 $(X - mu)/sigma$ 并计算 $Phi((b - mu)/sigma) - Phi((a - mu)/sigma)$ 即可。
@@ -258,7 +259,7 @@ $
 
 == 随机变量的分布
 
-对于离散型随机变量，我们可以先求出取值，在分别对对应的取值求出概率。而对于连续性随机变量，重点是求其密度函数：即已知 $X dash.wave  f_X (x), Y = g(X)$，求 $R.V. Y$ 的分布函数 $f_Y (y)$。
+对于离散型随机变量，我们可以先求出取值，在分别对对应的取值求出概率。而对于连续性随机变量，重点是求其密度函数：即已知 $X tilde  f_X (x), Y = g(X)$，求 $R.V. Y$ 的分布函数 $f_Y (y)$。
 
 首先介绍根据分布函数求 $R.V. Y$ 的 密度函数的方法：
 #formula("根据分布函数法")[\
@@ -432,28 +433,28 @@ $]
   若随机变量 $X$ 服从 $0 - 1$ 分布，则 $ E(X) = p, D(X) = p(1- p) $
 ]
 #theorem("二项分布")[
-  若随机变量 $X$ 服从二项分布即 $X dash.wave  B(n, p)$ 则
+  若随机变量 $X$ 服从二项分布即 $X tilde  B(n, p)$ 则
   $ E(X) = n p, D(X) = n p (1 - p) $
 ]
 #proof[
-  若随机变量 $X dash.wave  B(n, p)$ 则其含义为 $n$ 重伯努利实验中成功的次数即 $X = X_1 + X_2 + ... + X_n$，其中 $X_i$ 表示第 $i$ 次伯努利实验，每次伯努利实验独立且都有相同的 $p$，即 $E(X_i) = p$，则 $ E(X)& = E(X_1 + X_2 + ... + X_n) = n p \ D(X)& = D(X_1 + X_2 + ... + X_n) = n p(1 - p) $
+  若随机变量 $X tilde  B(n, p)$ 则其含义为 $n$ 重伯努利实验中成功的次数即 $X = X_1 + X_2 + ... + X_n$，其中 $X_i$ 表示第 $i$ 次伯努利实验，每次伯努利实验独立且都有相同的 $p$，即 $E(X_i) = p$，则 $ E(X)& = E(X_1 + X_2 + ... + X_n) = n p \ D(X)& = D(X_1 + X_2 + ... + X_n) = n p(1 - p) $
 ]
 
 #theorem("泊松分布")[
-  若随机变量 $X$ 服从参数为 $lambda$ 的泊松分布即 $X dash.wave  P(lambda)$ 则 $ E(X) = D(X) = lambda $
+  若随机变量 $X$ 服从参数为 $lambda$ 的泊松分布即 $X tilde  P(lambda)$ 则 $ E(X) = D(X) = lambda $
 ]
 
 #theorem("均匀分布")[
-  若 $X dash.wave  U(a, b)$ 则 $ E(X) = (a + b)/2, D(X) = (b - a)^2 / 12 $
+  若 $X tilde  U(a, b)$ 则 $ E(X) = (a + b)/2, D(X) = (b - a)^2 / 12 $
 ]
 
 #theorem("指数分布")[
-  若 $X dash.wave  e(lambda)$ 则 $ E(X) = 1/lambda, D(X) = 1/lambda^2 $
+  若 $X tilde  e(lambda)$ 则 $ E(X) = 1/lambda, D(X) = 1/lambda^2 $
 ]
 
 
 #theorem("正态分布")[
-  若 $X dash.wave  N(mu, sigma^2)$ 则 $ E(X) = mu, D(X) = sigma^2 $
+  若 $X tilde  N(mu, sigma^2)$ 则 $ E(X) = mu, D(X) = sigma^2 $
 ]
 
 == 协方差
@@ -606,7 +607,7 @@ $S = sqrt(S^2) = sqrt(1/(n - 1) limits(sum)_(i = 1)^n (X_i - overline(X))^2)$
 
 === $chi^2$ 分布，$t$ 分布和 $F$ 分布
 #definition([ $chi^2$ 分布])[
-设样本 $X_1, X_2, ..., X_n$ 相互独立，且均服从 $N(0, 1)$ 分布，则有 $X = X_1^2 + X_2^2 + ...+ X_n^2 $ 服从自由度为 $n$ 的 $chi^2$ 分布，即 $X dash.wave chi^2(n)$。
+设样本 $X_1, X_2, ..., X_n$ 相互独立，且均服从 $N(0, 1)$ 分布，则有 $X = X_1^2 + X_2^2 + ...+ X_n^2 $ 服从自由度为 $n$ 的 $chi^2$ 分布，即 $X tilde chi^2(n)$。
 ]
 
 $chi^2$ 分布有如下几条性质：
@@ -617,10 +618,10 @@ $chi^2$ 分布有如下几条性质：
   , align: center
   , [
   1. 可加性
-  若 $X dash.wave chi^2(n_1), Y dash.wave chi^2(n_2)$ 则 $X + Y dash.wave chi^2(n_1 + n_2)$.
+  若 $X tilde chi^2(n_1), Y tilde chi^2(n_2)$ 则 $X + Y tilde chi^2(n_1 + n_2)$.
   ], 
   [ 2. 均值与方差
-   若 $X dash.wave chi^2(n)$，则 $E(X) = n, D(X) = 2n$.
+   若 $X tilde chi^2(n)$，则 $E(X) = n, D(X) = 2n$.
   ]
   )
 
@@ -634,27 +635,26 @@ $chi^2$ 分布有如下几条性质：
 ]
 
 #definition([$t$ 分布])[
-  若有 $X dash.wave N(0, 1), Y dash.wave chi^2(n)$ 且相互独立，则 $
-  X / sqrt(Y / n) = t dash.wave t(n)
+  若有 $X tilde N(0, 1), Y tilde chi^2(n)$ 且相互独立，则 $
+  X / sqrt(Y / n) = t tilde t(n)
   $
 ]
 
 #definition([$F$ 分布])[
-  若有 $X_1 dash.wave chi^2(n_1), X_2 dash.wave chi^2(n_2)$ 且相互独立，则 $
-    X_1/n_1/(X_2/n_2) = F dash.wave F(n_1, n_2)
+  若有 $X_1 tilde chi^2(n_1), X_2 tilde chi^2(n_2)$ 且相互独立，则 $
+    X_1/n_1/(X_2/n_2) = F tilde F(n_1, n_2)
   $
 ]
 
 与 $chi^2$ 分布类似的，$t$ 分布及 $F$ 分布都具有上 $alpha$ 分位点。
 
 #definition("正态总体的样本均值与样本方差的分布")[
-设总体 $X dash.wave N(mu, sigma^2)$，$X_1, X_2, ..., X_n$ 为总体的一个样本，则 
-
-#h(1fr) 1. $overline(X) dash.wave N(mu, sigma^2/n)
-$#h(1fr) 2. $((n - 1) * S^2)/sigma^2 obey chi^2(n - 1)$ #h(1fr) 3. $overline(X) " 与 " S^2 "独立"$#h(1fr)
-]
-
-#image("./assets/WeChat7464a5889c0f3cadca18c1f801d247c8.jpg")
+设总体 $X tilde N(mu, sigma^2)$，$X_1, X_2, ..., X_n$ 为总体的一个样本，则 
+#table(columns: (1fr, 1fr),stroke: 0pt, inset: 10pt,
+  [ + $overline(X) tilde N(mu, sigma^2/n)$ ], [ 2. $((n - 1) * S^2)/sigma^2 obey chi^2(n - 1) $], [3. $ overline(X) " 与 " S^2 "独立" $], [ 4. $(overline(X) - mu)/(S \/ sqrt(n)) tilde t(n - 1) $]
+  )
+]<it>
+// #image("./assets/WeChat7464a5889c0f3cadca18c1f801d247c8.jpg")
 
 = 参数估计
 
@@ -689,7 +689,13 @@ $
 #definition([置信区间])[ 对于总体的一个未知参数 $theta$，存在一个 $alpha$，使得 $P{hat(theta)_1 < theta < hat(theta)_2} = 1 - alpha$，则称 $(hat(theta)_1, hat(theta)_2)$ 为置信区间。
 ]
 
-在求解置信区间时，通常先构造一个确定分布的含有参数 $theta$ 的样本统计量 $J$，根据其分布求出 $P{a < J < b} = 1 - alpha$，的左右端点 $a, b$，进而解出 $theta$ 的置信区间。
+在求解置信区间时，通常先构造一个确定分布的含有参数 $theta$ 的样本统计量，也称作枢轴量 $J$，根据其分布求出 $P{a < J < b} = 1 - alpha$，的左右端点 $a, b$，进而解出 $theta$ 的置信区间。
+
+#show link: it => text(it.body, fill: blue)
+在构造枢轴量时，可以根据 #link(<it>)[正态总体的样本均值与样本方差的分布] 来进行构造。
+// #formula(title: "构造方式", [方差 $sigma^2$ 未知，求未知参数 $mu$ 的置信区间])[
+
+// ]
 
 = 附录1：常见的分布类型的期望与方差及证明
 

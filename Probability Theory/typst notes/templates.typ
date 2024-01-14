@@ -4,7 +4,7 @@
   set page(numbering: "1", number-align: center)
   set heading(numbering: "1.1 ")
 
-  set text(font: ("Linux Libertine", "Noto Serif CJK SC"), lang: "en")
+  set text(font: ("Linux Libertine", "Noto Serif CJK SC"), lang: "ch")
   
   show heading: it => {
     v(0.3em)
