@@ -3,13 +3,13 @@
 #let chnamefmt = it => [#text(style: "normal")[（#it）]]
 
 #let no_fill_thmbox = thmbox.with(
-  inset: (x: 1.2em, top: 0.5em, bottom: 0.5em,left: 0em, right: 0em),
+  // inset: (x: 1.2em, top: 0.5em, bottom: 0.5em,left: 0em, right: 0em),
   separator: [#h(0.1em)：#h(0.2em)],
 
 )
 
 #let no_fill_thmplain = thmplain.with(
-  inset: (x: 1.2em, top: 0.5em, bottom: 0.5em,left: 0em, right: 0em),
+  // inset: (x: 1.2em, top: 0.5em, bottom: 0.5em,left: 0em, right: 0em),
   separator: [#h(0.1em)：#h(0.2em)],
 
 )

@@ -203,10 +203,11 @@ $P{X = k} := (lambda^k e^(-lambda))/(k!) , space (lambda > 0)$ 计作 $X tilde  
 == 连续型 $R.V.$
 
 #definition("分布函数")[
+若 $f(t)$ 是概率密度函数，则分布函数 $F(x)$ 为 
 $
 F(X) = integral_(-oo)^x f(t) dif t
 $ 
-其中 $f(t)$ 是概率密度函数，$F(x)$ 是分布函数
+
 ]
 
 #formula("区间概率公式")[
@@ -336,6 +337,8 @@ $ f(u, v) = cases(1/S_G \, (u, v) in G , 0 \, "其他")  $]
   f_Y (y) = integral_(-oo)^(+oo) f(x, y) dif x $ 
 ]
 
+
+#pagebreak()
 == 条件分布
 
 #definition("分布律")[
@@ -656,8 +659,9 @@ $chi^2$ 分布有如下几条性质：
 ]<it>
 // #image("./assets/WeChat7464a5889c0f3cadca18c1f801d247c8.jpg")
 
-= 参数估计
+#pagebreak()
 
+= 参数估计
 == 点估计
 #definition[
   已知总体 $X$ 的分布，含有未知参数 $theta$，用样本做参数来构造统计量 $hat(theta) thin (X_1, X_2, ..., X_n)$ 来估计 $theta$。
@@ -672,7 +676,7 @@ $chi^2$ 分布有如下几条性质：
 基本思想是使得样本发生的概率最大的 $hat(theta)$ 即为最大似然估计。
 
 在最大似然估计中，用似然函数去刻画样本出现的概率大小，其形式如下：$
- "Li"(theta) = &product_(i = 0)^n P{X = X_i} quad &"（离散型随机变量）" \
+ "L"(theta) = &product_(i = 0)^n P{X = X_i} quad &"（离散型随机变量）" \
  &product_(i = 0)^(n) f (x_i) quad &"（连续型随机变量）"
 $
 
@@ -689,10 +693,10 @@ $
 #definition([置信区间])[ 对于总体的一个未知参数 $theta$，存在一个 $alpha$，使得 $P{hat(theta)_1 < theta < hat(theta)_2} = 1 - alpha$，则称 $(hat(theta)_1, hat(theta)_2)$ 为置信区间。
 ]
 
-在求解置信区间时，通常先构造一个确定分布的含有参数 $theta$ 的样本统计量，也称作枢轴量 $J$，根据其分布求出 $P{a < J < b} = 1 - alpha$，的左右端点 $a, b$，进而解出 $theta$ 的置信区间。
+在求解置信区间时，通常先构造一个确定分布的含有参数 $theta$ 的样本统计量，也称作枢轴量 $J$，根据其分布求出 $P{a < J < b} = 1 - alpha$，的左右端点 $a"，" b$（一般是由其分布的函数图像总结而来，用上分位点表示），进而解出 $theta$ 的置信区间。
 
 #show link: it => text(it.body, fill: blue)
-在构造枢轴量时，可以根据 #link(<it>)[正态总体的样本均值与样本方差的分布] 来进行构造。
+在构造枢轴量时，可以根据#link(<it>)[正态总体的样本均值与样本方差的分布]来进行构造。
 // #formula(title: "构造方式", [方差 $sigma^2$ 未知，求未知参数 $mu$ 的置信区间])[
 
 // ]
@@ -703,3 +707,5 @@ $
 #image("./assets/截屏2024-01-08-22.05.04.svg")
 #image("./assets/截屏2024-01-08-22.05.38.svg")
 #image("./assets/截屏2024-01-08-22.05.58.svg")
+
+,
