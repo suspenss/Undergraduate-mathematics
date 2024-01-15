@@ -39,8 +39,9 @@
     #align(center)[
       #block(text(weight: 700, 1.75em, title))
     ] 
-    #v(3em)
-    #outline(indent: true, title: "目录", depth: 2)
+    #v(1em)
+
+    #outline(indent: true, title: [目录], depth: 2)
   ])
 
   // outline(fill: none, indent: true, title: "目录", depth: 2)

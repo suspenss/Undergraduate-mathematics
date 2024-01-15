@@ -22,14 +22,15 @@
 若 $A$ 代表事件 $A$ 发生, $overline(A)$ 代表事件没有发生，我们定义如下在随机事件上的关系运算：
 
 #table(
-  columns:(1fr, 1fr), align: center, stroke: 0pt,
-
-[包含], [并集],
-[ $A subset B <=> A -> B$ \ 另外有 $A = B <=> A subset B and B subset A$  ], [$A union B  <=> A or B $],
-
-[交集], [差集],
-
-[$A sect B  <=> A and B $], [$A -  B <=> A  and overline(B)$ \ 另外有 $A - B = A - A B = A overline(B)$  ]
+  columns:(1fr, 1fr), 
+  align: center,
+  stroke: 0pt,
+  inset: 5pt,
+[包含], [差集],
+[ $ A subset B <=> A -> B \ "另外有" A = B <=> A subset B and B subset A $], [$ A -  B <=> A  and overline(B) \ "另外有" A - B = A - A B = A overline(B) $],
+[],[],
+[交集], [并集],
+[$ A sect B  <=> A and B $], [$ A union B  <=> A or B $]
 )
 
 对于交集和并集运算，符合以下四种运算律：
@@ -37,12 +38,13 @@
   columns: (1fr, 1fr), 
   align: center, 
   stroke: 0pt,
+  inset: 5pt,
   [_交换律_], [结合律 ], 
   [$ A union B = B union A \ A sect B = B sect A $],
-  [$ (A union B) union C = A union (B union C)\ (A sect B) sect C = A sect (B sect C) $ \ ], 
-  
-  [  分配律], [对偶律（德摩根定律）],
-  [$ (A union B) sect C = (A sect C) union (B sect C)\ (A sect B) union C = (A union C) sect (B union C)  $], [$ overline(A union B) = overline(A) sect overline(B) \ overline(A sect B) = overline(A) union overline(B) $ ]
+  [$ (A union B) union C = A union (B union C)\ (A sect B) sect C = A sect (B sect C) $ ], 
+  [],[],
+  [分配律], [对偶律（德摩根定律）],
+  [$ (A union B) sect C = (A sect C) union (B sect C)\ (A sect B) union C = (A union C) sect (B union C)  $], [$ overline(A union B) = overline(A) sect overline(B) \ overline(A sect B) = overline(A) union overline(B) $]
 )
 
 == 关系 
@@ -62,7 +64,7 @@
   columns: (1fr, 1fr), 
   align: center, 
   stroke: 0pt,
-  [频率], [概率], [$f_n (A) = n_A / n$], [$P(A) =  limits(lim)_(n -> infinity) f_n (A) -> P$])
+  [频率], [概率], [$ f_n (A) = n_A / n $], [$ P(A) =  limits(lim)_(n -> infinity) f_n (A) -> P $])
 ]
 
 #properties()[
@@ -70,32 +72,37 @@
   columns: (1fr, 1fr), 
   align: center, 
   stroke: 0pt,
-  [非负性], [标准性], [ $0 <= P(A) <= 1$ ], [ $P(Omega) = 1, P(diameter) = 0$ \ \ ]
-  
+  [非负性], [标准性], [ $ 0 <= P(A) <= 1 $ ], [ $ P(Omega) = 1, P(diameter) = 0$  ],
+  [], []
   ,[无限可加性], [互补性],
-  [ If $A sect B = diameter$ then $P(A union B) = P(A) + P(B)$], [$P(overline(A)) = 1 - P(A)$]
-)
-]
+  [ $ "If" A sect B = diameter \ "then" P(A union B) = P(A) + P(B) $], [$ P(overline(A)) = 1 - P(A) $]
+)]
 
 
 概率之间存在如下运算：
-  #table(
-  columns: 1fr, 
-  align: center, 
-  stroke: 0pt,
-  [1. _减法_ 
-   $ P(A - B) = P(A) - P(A B)  \ "If" B subset A, P(A - B) = P(A) - P(B). $], 
+#definition("运算")[
 
-)
-  #table(
-  columns: (1fr, 1fr), 
-  align: center, 
-  stroke: 0pt,
-  [2. 加法
-  $ P(A union B) = P(A) + P(B) - P(A B) $], 
-  [3. 乘法 
-   $ P(A B) = P(A) P(B | A) $]
-)
++ 减法：$P(A - B) = P(A) - P(A B) ，" If" B subset A， P(A - B) = P(A) - P(B)$
+
++ 加法：$P(A union B) = P(A) + P(B) - P(A B)$
++  乘法：$P(A B) = P(A) P(B | A) $
+]
+//   #table(
+//   columns: 1fr, 
+//   align: center, 
+//   stroke: 0pt,
+//   [1. _减法_ 
+//    $ P(A - B) = P(A) - P(A B)  \ "If" B subset A, P(A - B) = P(A) - P(B). $], 
+// )
+//   #table(
+//   columns: (1fr, 1fr), 
+//   align: center, 
+//   stroke: 0pt,
+//   [2. 加法
+//   $ P(A union B) = P(A) + P(B) - P(A B) $], 
+//   [3. 乘法 
+//    $ P(A B) = P(A) P(B | A) $]
+// )
 
 
 == 条件概率
@@ -127,7 +134,7 @@ $ P(A_i | B) = P(A_i B) / P(B) = (P(A_i) P(B | A_i) ) / (sum_(i = 1)^n P(A_i)P(B
 
 且 $A, overline(A), B, overline(B)$ 也相互独立，此外有 
 $ "若" A, B, C "互为独立事件"  --> & A, B, C "两两独立"  \
- "若" A, B, C "互为独立事件"  --> & "关于" A, B "的加法，乘法，减法"\ &"以及逆运算" "也分别独立与" C "和" overline(C)
+ "若" A, B, C "互为独立事件"  --> & "关于" A, B "的加法，乘法，减法"\ &"以及逆运算也分别独立与" C "和 " overline(C)
 $
 
 == 伯努利概型
@@ -152,16 +159,14 @@ $R.V.$ 是一个从随机试验 $E$ 的样本空间 $Omega$ 到 $RR$ 的一个�
 设 $X$ 是一个 $R.V.$, $r$ 是任意实数，则称事件 ${X <= r}$ 的概率为 $R.V. space X$ 的分布函数，计作 $F(r)$。
 ]
 分布函数有如下性质：
-#properties[
-  + $P{x_1 < X <= x_2} = P{X <= x_2} - P{X <= x_1} = F(x_2) - F(x_1).$
-  + $F(x)$ 是一个不减函数
-  + $F(-oo) = 0, F(+oo) = 1.$
-]
+#properties("范围概率")[$P{x_1 < X <= x_2} = P{X <= x_2} - P{X <= x_1} = F(x_2) - F(x_1)$]  
+#properties("增减性")[$F(x)$ 是一个不减函数]
+#properties("标准性")[$F(-oo) = 0, F(+oo) = 1$]
 
+#pagebreak()
 == 离散型随机变量及其分布
-#definition(title: "定义")[
+#definition(title: "常见的分布形式")[
 #table(columns: (1fr, 1fr), align: center, stroke: 0pt,
-
 [0 -- 1 分布 
 
 $#table(columns: 3, [x],[0], [1], [P], [$p$], [$1 - p$])$],
@@ -230,12 +235,11 @@ $ f(x) = cases(1/lambda e^(-x/lambda)\, space & x > 0, 0\, & "otherwize") $
 ]
 
 #formula[
-  $integral^(+oo)_(-oo) e^(-x^2/A) dif x = sqrt(A pi) , space A > 0$
+  $integral^(+oo)_(-oo) e^(-x^2/A) dif x = sqrt(A pi) , space A > 0$]
 #proof[
   设 $X tilde  N(0, A/2)$, 因为概率分布函数具有规范性 $F(+oo) = 1$ 即 $integral_(-oo)^(+oo) f(x) = 1.$ 带入得
   $ integral_(-oo)^(+oo) 1/(sqrt(A pi)) e^(-x^2 / A) dif x = 1 \ 1/(sqrt(A pi)) integral_(-oo)^(+oo)  e^(-x^2 / A) dif x = 1 \ integral_(-oo)^(+oo)  e^(-x^2 / A) dif x = sqrt(A pi)
   $
-]
 ]
 
 #definition("标准正态分布")[
@@ -254,7 +258,7 @@ $
 
 
 #definition("分位点")[
-  $mu_(alpha)$ 表示 $P{x > mu_(alpha) } = alpha$.\ 并且有 $mu_(1 - alpha) = mu(-alpha)$.
+  $mu_(alpha)$ 表示 $P{x > mu_(alpha) } = alpha$. 并且有 $mu_(1 - alpha) = mu(-alpha)$.
 ]
 
 
@@ -298,6 +302,9 @@ $
 ]
 
 二维随机变量的联合密度函数有如下性质：
+
+#pagebreak()
+
 #properties[
 #table(columns: (1fr, 1fr), align: center,stroke: 0pt,
 [1. 非负性：
@@ -317,8 +324,8 @@ $ F{(X, Y) in G} =  limits(integral.double)_G f(x, y) dif x dif y $]
 #definition("均匀分布")[
 $ f(u, v) = cases(1/S_G \, (u, v) in G , 0 \, "其他")  $]
 
-#definition("二维正态分布")[
-#image("./assets/截屏2023-12-29-21.59.19.svg")]
+// #definition("二维正态分布")[
+// #image("./assets/截屏2023-12-29-21.59.19.svg")]
 
 == 边缘分布
 
@@ -338,7 +345,6 @@ $ f(u, v) = cases(1/S_G \, (u, v) in G , 0 \, "其他")  $]
 ]
 
 
-#pagebreak()
 == 条件分布
 
 #definition("分布律")[
@@ -455,7 +461,6 @@ $]
   若 $X tilde  e(lambda)$ 则 $ E(X) = 1/lambda, D(X) = 1/lambda^2 $
 ]
 
-
 #theorem("正态分布")[
   若 $X tilde  N(mu, sigma^2)$ 则 $ E(X) = mu, D(X) = sigma^2 $
 ]
@@ -470,25 +475,26 @@ $]
 ] 
 已知方差的性质 3：$D(X + Y) = D(X) + D(Y) - 2[E(X Y) - E(X) E(Y)]$，我们将协方差的计算公式带入可得到 $D(X + Y) = D(X) + D(Y) - 2"cov"(X, Y)$。
 
-协方差有以下性质 
+#pagebreak()
+
+协方差有以下性质
 #properties[
 #table(
   columns: (1fr, 1fr), 
-  align: center, 
+  // align: center, 
   stroke: 0pt,
   [  1. $"cov"(X, Y) = "cov"(Y, X)$ ],
   
   [ 
     2. $"cov"(a X, b Y) = a b "cov"(X, Y)$
-      \ $a, b$ 为常数 \ \
   ],
+  [], [],
    [
     3. $"cov"(X + Y, Z) = "cov"(X, Z) + "cov"(Y, Z)$
    ]
    ,
    [
-    4. 若 $X, Y$ 相互独立，则 
-    $"cov"(X, Y) = 0$
+    4. 若 $X, Y$ 相互独立，则 $"cov"(X, Y) = 0$
    ]
   )
 ]
@@ -508,6 +514,8 @@ $]
       + 若 $rho_(X Y) = 1$，则称 $X, Y$ 为正相关，$y = a x + b, a > 0$
       + 若 $rho_(X Y) = -1$，则称 $X, Y$ 为负相关，$y = a x + b, a < 0$
 ]
+
+#pagebreak()
 
 = 大数定律和中心极限定理
 == 大数定律
@@ -573,6 +581,7 @@ $
 #definition("经验分布函数")[
 有 样本 $x_1, x_2, ..., x_n$，用$S(x)，-oo < z< oo$ 表示 $x_1, x_2, ..., x_n$ 中不大于 $x$ 的随机变量的个数，定义经验分布函数 $F(z)$ 为 $ F_n(x) = 1/n S(x), quad -oo < x < oo  $
 ]
+
 
 
 === 统计量
@@ -659,7 +668,6 @@ $chi^2$ 分布有如下几条性质：
 ]<it>
 // #image("./assets/WeChat7464a5889c0f3cadca18c1f801d247c8.jpg")
 
-#pagebreak()
 
 = 参数估计
 == 点估计
@@ -701,6 +709,8 @@ $
 
 // ]
 
+
+#pagebreak()
 = 附录1：常见的分布类型的期望与方差及证明
 
 #image("./assets/截屏2024-01-08-22.04.16.svg")
