@@ -30,7 +30,7 @@
   show outline.entry.where(
     level: 1
   ): it => {
-    v(12pt, weak: true)
+    v(14pt, weak: true)
 
     let no_fill_it = {it.body ;h(1fr); it.page}
     strong(no_fill_it)
