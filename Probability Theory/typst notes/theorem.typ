@@ -4,13 +4,14 @@
 
 #let no_fill_thmbox = thmbox.with(
   inset: (x: 1.2em, top: 0.0em, bottom: 0.0em),
-  separator: [#h(0.1em)：#h(0.2em)],
+  separator: [：],
+  base_level: 1,
 )
 
 #let no_fill_thmplain = thmplain.with(
   // inset: (x: 1.2em, top: 0.5em, bottom: 0.5em,left: 0em, right: 0em),
-  separator: [#h(0.1em)：#h(0.2em)],
-
+  separator: [：],
+  base_level: 1,
 )
 
 #let corollary = no_fill_thmbox(
@@ -28,25 +29,27 @@
 
 #let proof = no_fill_thmplain(
   "proof",
-  text("证明", font: "Kai"),
+  "Proof",
+  // text("证明", font: "Kai"),
   base: "theorem",
   bodyfmt: body => [#body #h(1fr) $square$],
+  separator: [#h(0.2em)_:_#h(0.2em)],
 ).with(numbering: none)
 
-#let properties = no_fill_thmplain(
+#let properties = no_fill_thmbox(
   "properties",
-  "性质",
+  "Properties",
   titlefmt: strong,
   namefmt : chnamefmt,
-).with(numbering: none)
+)
 
 #let formula = no_fill_thmbox(
   "formula",
-  "公式",
+  "Formula",
   titlefmt: strong,
   // inset: (x: 1.2em, top: 0.5em, bottom: 0.5em),
   namefmt : chnamefmt,
-).with(numbering: none)
+)
 
 // #let theorem = thmbox(
 //   "theorem",
@@ -56,13 +59,13 @@
 // )
 #let theorem = no_fill_thmbox(
   "theorem",
-  "定理",
+  "Theorem",
   titlefmt: strong,
   // inset: (x: 1.2em, top: 0.5em, bottom: 0.5em),
   namefmt : chnamefmt,
   // fill: rgb("#e8e8f8"),
     // separator: [#h(0.1em)：#h(0.2em)],
-).with(numbering: none)
+)
 
 
 #let lemma = no_fill_thmbox(
@@ -75,8 +78,15 @@
 
 
 #let definition = no_fill_thmbox(
-   "定义",
-   "定义", 
+   "definition",
+   "Definition", 
   titlefmt: strong,
   namefmt : chnamefmt,
-).with(numbering: none)
+)
+
+#let annotation = no_fill_thmbox(
+   "annotation",
+   "Annotation", 
+  titlefmt: strong,
+  namefmt : chnamefmt,
+)
