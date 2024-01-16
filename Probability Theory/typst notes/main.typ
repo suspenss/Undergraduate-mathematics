@@ -917,7 +917,7 @@ $P{hat(theta)_1 < theta < hat(theta)_2} = 1 - alpha$，
 
 
 = 假设检验
-假设检验即对于所要求的未知参数 $theta$，首先根据题意设定一个假设值 $H_0 = theta$，求其所构造枢轴量 $J$ 的满足 $P{theta_1 < J < theta_2} = 1 - alpha$ 的区间 $(theta_1, theta_2)$，其补集 $(-oo, theta_1) union (theta_2, +oo)$ 为*拒绝域*，将假设值代入所构造的枢轴量，若结果落在拒绝域上，则拒绝假设 $H_0$ 。
+假设检验即对于所要检验的参数 $theta$，首先根据题意设定一个假设值 $H_0 = theta$，求其所构造枢轴量 $J$ 的满足 $P{theta_1 < J < theta_2} = 1 - alpha$ 的区间 $(theta_1, theta_2)$，其补集 $(-oo, theta_1) union (theta_2, +oo)$ 为*拒绝域*，将假设值代入所构造的枢轴量，若结果落在拒绝域上，则拒绝假设 $H_0$ 。
 
 // #pagebreak()
 
