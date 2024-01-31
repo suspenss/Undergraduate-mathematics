@@ -6,7 +6,9 @@
 // #show math.equation: set text(font: "Libertinus Math")
 
 #show: project.with(
-  title: "Linear Algebra", authors: ("epoche",), language: "ch",
+  title: "Linear Algebra", authors: ("epoche",), language: "ch", outl: [
+    #outline(indent: true, title: "目录", depth: 2)
+  ],
 )
 
 #show math.ast: math.thin

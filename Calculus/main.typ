@@ -13,7 +13,10 @@
   authors: (
     "epoche",
   ),
-  language: "ch",
+  language: "ch", 
+  outl: [
+    #outline(indent: true, title: "目录", depth: 2)
+  ],
 )
 
 //#show math.equation: set text(font: "New Computer Modern Math")

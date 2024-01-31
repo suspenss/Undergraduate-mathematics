@@ -4,13 +4,13 @@
 
 #let no_fill_thmbox = thmbox.with(
   inset: (x: 1.2em, top: 0.0em, bottom: 0.0em),
-  separator: [：],
+  separator: [],
   base_level: 1,
 )
 
 #let no_fill_thmplain = thmplain.with(
   // inset: (x: 1.2em, top: 0.5em, bottom: 0.5em,left: 0em, right: 0em),
-  separator: [：],
+  separator: [],
   base_level: 1,
 )
 
@@ -74,7 +74,7 @@
    // fill: rgb("#e8e8f8")
   titlefmt: strong,
   namefmt: chnamefmt
-).with(numbering: none)
+)
 
 
 #let definition = no_fill_thmbox(
@@ -90,3 +90,22 @@
   titlefmt: strong,
   namefmt : chnamefmt,
 )
+
+#let proposition = no_fill_thmbox(
+   "proposition",
+   "Proposition", 
+  titlefmt: strong,
+  namefmt : chnamefmt,
+)
+
+#let base = no_fill_thmbox(
+   "base",
+   "Base", 
+  titlefmt: strong,
+  namefmt : chnamefmt,
+)
+
+
+#let exercise = base.with(title: "Exercise")
+#let axiom = base.with(title: "Axiom")
+#let corollary = base.with(title: "Corollary")

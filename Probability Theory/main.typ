@@ -6,7 +6,9 @@
 // #show math.equation: set text(font: "Libertinus Math")
 
 #show: project.with(
-  title: "概率论笔记", authors: ("epoche",), language: "ch",
+  title: "概率论笔记", authors: ("epoche",), language: "ch", outl: [
+    #outline(indent: true, title: "目录", depth: 2)
+  ],
 )
 
 #show math.ast: math.thin
