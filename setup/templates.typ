@@ -3,10 +3,10 @@
   set page(numbering: "1", number-align: center)
   set heading(numbering: "1.1 ")
 
-  set text(font: ("Linux Libertine", "Noto Serif CJK SC"), lang: language, 
+  set text(font: ("Libertinus Serif", "Noto Serif CJK SC"), lang: language,
   size: 11pt
   )
-  show math.equation: set text(font: ("New Computer Modern Math", "Linux Libertine", "Noto Serif CJK SC"))
+  show math.equation: set text(font: ("New Computer Modern Math", "Libertinus Serif", "Noto Serif CJK SC"))
   show raw: set text(font: "Fira Code", weight: "medium")
 
   show heading: set block(above: 1.4em, below: 1em)
@@ -29,10 +29,10 @@
     #v(6.18em)
     #align(center)[
       #block(text(weight: 700, 1.75em, title))
-    ] 
-    
+    ]
+
     #v(1em)
-    #align(center)[一个短篇 
+    #align(center)[suspen
 
     #datetime.today().display("[year] 年 [month] 月 [day] 日")
     ]
@@ -43,7 +43,7 @@
   // Main body.
   set terms(tight: true)
   show link: underline
-  
+
   body
 }
 
