@@ -12,7 +12,7 @@
   show heading: set block(above: 1.4em, below: 1em)
   show heading.where(level: 1): it => {
     v(1em)
-    align(center)[#it]
+    [#it]
   }
   show regex("[“”‘’．，。、？！：；（）｛｝［］〔〕〖〗《 》〈 〉「」【】『』─—＿·…\u{30FC}]+"): set text(font: "Noto Serif CJK SC")
 
