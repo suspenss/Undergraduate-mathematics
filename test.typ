@@ -1,20 +1,21 @@
-#import "@preview/ctheorems:1.1.3": *
+#import "./setup/main.typ": *
+#import "./setup/theorem.typ": *
+
 #show: thmrules.with(qed-symbol: $square$)
 
-#set page(width: 16cm, height: auto, margin: 1.5cm)
-#set heading(numbering: "1.1.")
-
-#let theorem = thmbox("theorem", "Theorem", fill: rgb("#eeffee"))
-#let corollary = thmplain(
-  "corollary",
-  "Corollary",
-  base: "theorem",
-  titlefmt: strong
+#show: project.with(
+  title: "Basic Knoweledge",
+  authors: (
+    "suspen",
+  ),
+  language: "ch",
 )
-#let definition = thmbox("definition", "Definition", inset: (x: 1.2em, top: 1em))
 
-#let example = thmplain("example", "Example").with(numbering: none)
-#let proof = thmproof("proof", "Proof")
+// #set par(leading: 0.55em, spacing: 0.55em)
+
+// #set text(font: "New Computer Modern")
+// #show raw: set text(font: "New Computer Modern Mono")
+// #show heading: set block(above: 1.4em, below: 1em)
 
 = Prime numbers
 
