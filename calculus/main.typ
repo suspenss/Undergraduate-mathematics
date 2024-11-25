@@ -1,4 +1,4 @@
-#import "./setup/main.typ": *
+#import "../setup/main.typ": *
 
 #show: project.with(
   title: "Basic Mathmatical",

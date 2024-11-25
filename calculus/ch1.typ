@@ -1,5 +1,5 @@
-#import "./setup/main.typ": *
-#import "./setup/theorem.typ": *
+#import "../setup/main.typ": *
+#import "../setup/theorem.typ": *
 
 #show: thmrules.with(qed-symbol: $square$)
 
