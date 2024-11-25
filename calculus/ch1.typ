@@ -23,15 +23,15 @@
   + $ln(x + sqrt(x^2 + 1)) ~ x$
   + $a^x -1 ~ x ln a$
   + $1 - cos x ~ 1/2 x^2$
-  + $(1 + x)^a - 1 ~ a x$ 
+  + $(1 + x)^a - 1 ~ a x$
 ] <Equivalent-Infintesimal>
 
 #remark[
   无界不一定要有无穷大的量，如 $f(x) = x sin x$.
-] 
+]
 
 #theorem[
-  $lim f(x)/g(x) = A, "if one of" f(x) "and" g(x) "equal to" 0, "the another is" 0.$ 
+  $lim f(x)/g(x) = A, "if one of" f(x) "and" g(x) "equal to" 0, "the another is" 0.$
 ]
 
 #proof[
@@ -51,5 +51,4 @@
 == 泰勒公式
 
 #definition[
-  泰勒
 ]
