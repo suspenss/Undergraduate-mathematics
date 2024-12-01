@@ -13,14 +13,8 @@
 
 
 = 函数的极限与连续
-#knowledge("Equivalent Infinitesimal")[
-  + $sin x ~ x$
-  + $tan x ~ x$
-  + $arcsin x ~ x$
-  + $arctan x ~ x$
-  + $ln(1 + x) ~ x$
-  + $e^x - 1 ~ x$
-  + $ln(x + sqrt(x^2 + 1)) ~ x$
+#knowledge("常见的等价无穷小")[
+  + $x ~ sin x ~ tan x ~ arcsin x ~ arctan x ~ ln(1 + x) ~ e^x - 1 ~ ln(x + sqrt(x^2 + 1))$
   + $a^x -1 ~ x ln a$
   + $1 - cos x ~ 1/2 x^2$
   + $(1 + x)^a - 1 ~ a x$
@@ -46,9 +40,4 @@
 #remark[
   + @Equivalent-Infintesimal 中的常用的等价无穷小，使用时需要注意应满足前提条件 $x -> 0$。
   + 求极限时，只能在分子分母形式时替换。
-]
-
-== 泰勒公式
-
-#definition[
 ]

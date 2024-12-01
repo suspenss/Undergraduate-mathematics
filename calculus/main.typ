@@ -12,5 +12,8 @@
   title_page: true
 )
 
+
 #include "basic.typ"
 #include "ch1.typ"
+#include "ch2.typ"
+
